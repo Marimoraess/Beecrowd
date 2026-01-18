@@ -1,23 +1,23 @@
-N, M = map(int, input().split())
+linhas, colunas = map(int, input().split())
 
-campo = []
-for _ in range(N):
-    linha = list(map(int, input().split()))
-    campo.append(linha)
+matriz = []
+for _ in range(linhas):
+    valores = list(map(int, input().split()))
+    matriz.append(valores)
 
-maior_soma = 0
+max_soma = 0
 
-for i in range(N):
-    soma_linha = sum(campo[i])
-    if soma_linha > maior_soma:
-        maior_soma = soma_linha
+for i in range(linhas):
+    soma_l = sum(matriz[i])
+    if soma_l > max_soma:
+        max_soma = soma_l
 
 
-for j in range(M):
-    soma_coluna = 0
-    for i in range(N):
-        soma_coluna += campo[i][j]
-    if soma_coluna > maior_soma:
-        maior_soma = soma_coluna
+for j in range(colunas):
+    soma_c = 0
+    for i in range(linhas):
+        soma_c += matriz[i][j]
+    if soma_c > max_soma:
+        max_soma = soma_c
 
-print(maior_soma)
+print(max_soma)

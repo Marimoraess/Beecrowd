@@ -1,6 +1,6 @@
 N = int(input())
 
-for _ in range(N):
+for c in range(N):
     palavras = input().split()
 
     palavras.sort(key=len, reverse=True)

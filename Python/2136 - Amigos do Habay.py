@@ -21,13 +21,13 @@ while True:
             inscritos_yes.append(nome)
             nomes_processados_yes.add(nome)
         
-        
+      
         if len(nome) > vencedor_tam:
             vencedor_nome = nome
             vencedor_tam = len(nome)
             
     else:
-        
+       
         inscritos_no.append(nome)
 
 inscritos_yes.sort()
@@ -35,12 +35,10 @@ inscritos_no.sort()
 
 for nome in inscritos_yes:
     print(nome)
-    
 
 for nome in inscritos_no:
     print(nome)
     
-
 print()
 
 
