@@ -1,0 +1,40 @@
+def pontuacao_mao(cartas):
+    cartas.sort()
+    from collections import Counter
+    contagem = Counter(cartas)
+    valores = list(contagem.values())
+    chaves = list(contagem.keys())
+
+    if len(contagem) == 5 and max(cartas) - min(cartas) == 4:
+        return min(cartas) + 200
+
+    if 4 in valores:
+        x = chaves[valores.index(4)]
+        return x + 180
+
+    if 3 in valores and 2 in valores:
+        x = chaves[valores.index(3)]
+        return x + 160
+
+    if 3 in valores and valores.count(2) == 0:
+        x = chaves[valores.index(3)]
+        return x + 140
+
+    if valores.count(2) == 2:
+        pares = [chaves[i] for i, v in enumerate(valores) if v == 2]
+        pares.sort(reverse=True)
+        x, y = pares
+        return 3 * x + 2 * y + 20
+
+    if 2 in valores:
+        x = chaves[valores.index(2)]
+        return x
+
+    return 0
+
+
+N = int(input())
+for i in range(1, N+1):
+    cartas = list(map(int, input().split()))
+    pontos = pontuacao_mao(cartas)
+    print(f"Teste {i}\n{pontos}\n")
